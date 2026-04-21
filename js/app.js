@@ -878,3 +878,44 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(sessionStorage.getItem('svAdmin'))openAdminPage();
   else checkHashOnLoad();
 });
+
+// ============================
+// PICTURE SLIDESHOW (sidebar)
+// ============================
+let slideshowIdx = 0;
+let slideshowTotal = 4;
+let slideshowTimer = null;
+
+function updateSlideshow() {
+  const track = document.getElementById('slideshowTrack');
+  if (!track) return;
+  track.style.transform = 'translateX(-' + (slideshowIdx * 100) + '%)';
+  const dots = document.querySelectorAll('.ad-slideshow-dot');
+  dots.forEach((d,i) => d.classList.toggle('active', i === slideshowIdx));
+}
+function slideshowNext() {
+  slideshowTotal = document.querySelectorAll('.ad-slideshow-slide').length;
+  slideshowIdx = (slideshowIdx + 1) % slideshowTotal;
+  updateSlideshow();
+  resetSlideshowTimer();
+}
+function slideshowPrev() {
+  slideshowTotal = document.querySelectorAll('.ad-slideshow-slide').length;
+  slideshowIdx = (slideshowIdx - 1 + slideshowTotal) % slideshowTotal;
+  updateSlideshow();
+  resetSlideshowTimer();
+}
+function goSlideshow(i) {
+  slideshowIdx = i;
+  updateSlideshow();
+  resetSlideshowTimer();
+}
+function resetSlideshowTimer() {
+  clearInterval(slideshowTimer);
+  slideshowTimer = setInterval(slideshowNext, 4000);
+}
+// Start auto-slide
+document.addEventListener('DOMContentLoaded', function() {
+  slideshowTotal = document.querySelectorAll('.ad-slideshow-slide').length || 4;
+  resetSlideshowTimer();
+});
