@@ -139,7 +139,7 @@
             <span class="ad-slideshow-dot" onclick="goSlideshow(3)"></span>
           </div>
         </div>
-                <div class="quote-card" id="bibleQuote1">
+        <div class="quote-card" id="bibleQuote1">
           <div class="quote-cross">✝</div>
           <p class="quote-text" id="bq1text">"For God so loved the world..."</p>
           <span class="quote-ref" id="bq1ref">John 3:16</span>
@@ -252,7 +252,6 @@
     <button class="admin-logout" onclick="doLogout()">Logout</button>
   </div>
   <div class="admin-layout">
-    <!-- Sidebar Nav -->
     <nav class="admin-sidenav">
       <button class="admin-nav-btn active" onclick="openAdminTab('tab-news',this)">📰 News</button>
       <button class="admin-nav-btn" onclick="openAdminTab('tab-ads',this)">📢 Ads</button>
@@ -264,7 +263,6 @@
       <button class="admin-nav-btn" onclick="openAdminTab('tab-security',this)">🔐 Security</button>
     </nav>
 
-    <!-- Tab Content -->
     <div class="admin-tab-content">
 
       <!-- NEWS TAB -->
@@ -404,7 +402,6 @@
       <!-- APPEARANCE TAB -->
       <div id="tab-appearance" class="admin-tab hidden">
         <h2 class="tab-title">🎨 Appearance Settings</h2>
-
         <div class="admin-form-card">
           <h3 class="form-card-title">Page Identity</h3>
           <div class="form-row">
@@ -419,10 +416,8 @@
           <div class="form-group"><label>Footer Text</label><input type="text" id="appFooterSub" placeholder="Sharing the Good News..."/></div>
           <button class="admin-btn-add" onclick="saveAppearanceText()">💾 Save Text</button>
         </div>
-
         <div class="admin-form-card" style="margin-top:24px;">
           <h3 class="form-card-title">Hero Background Image</h3>
-          <p class="tab-desc">Upload a photo to use as the hero section background (the area in the screenshot you want to add a picture to).</p>
           <div class="image-upload-area">
             <input type="file" id="heroBgFile" accept="image/*" onchange="handleImageUpload(event,'heroBgData','heroBgPreview','heroBgPlaceholder','heroBgRemoveBtn')" style="display:none"/>
             <div class="upload-placeholder" id="heroBgPlaceholder" onclick="document.getElementById('heroBgFile').click()">
@@ -434,10 +429,8 @@
           <input type="hidden" id="heroBgData"/>
           <button class="admin-btn-add" style="margin-top:12px;" onclick="saveHeroBg()">💾 Apply Background</button>
         </div>
-
         <div class="admin-form-card" style="margin-top:24px;">
           <h3 class="form-card-title">Church Logo</h3>
-          <p class="tab-desc">Upload your church logo. It will appear in the hero section above the title.</p>
           <div class="image-upload-area">
             <input type="file" id="logoFile" accept="image/*" onchange="handleImageUpload(event,'logoData','logoPreview','logoPlaceholder','logoRemoveBtn')" style="display:none"/>
             <div class="upload-placeholder" id="logoPlaceholder" onclick="document.getElementById('logoFile').click()">
@@ -449,10 +442,8 @@
           <input type="hidden" id="logoData"/>
           <button class="admin-btn-add" style="margin-top:12px;" onclick="saveLogo()">💾 Apply Logo</button>
         </div>
-
         <div class="admin-form-card" style="margin-top:24px;">
           <h3 class="form-card-title">Color Theme</h3>
-          <p class="tab-desc">Choose from 10 preset color themes or customize your own accent color.</p>
           <div class="theme-grid" id="themeGrid"></div>
           <div class="form-row" style="margin-top:20px;">
             <div class="form-group"><label>Custom Accent Color</label><input type="color" id="customAccent" value="#d4a017"/></div>
@@ -500,8 +491,8 @@
         </div>
       </div>
 
-    </div><!-- end tab-content -->
-  </div><!-- end admin-layout -->
+    </div>
+  </div>
 </div>
 
 <!-- LOGIN MODAL -->
@@ -520,7 +511,20 @@
   </div>
 </div>
 
+<!-- Firebase Loading Overlay -->
+<div id="fbLoadingOverlay" style="position:fixed;inset:0;background:rgba(11,15,26,0.92);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+  <div style="font-size:2.5rem;">✝</div>
+  <div style="color:#d4a017;font-size:1.1rem;font-family:'DM Sans',sans-serif;">Connecting to Firebase...</div>
+  <div style="width:48px;height:48px;border:3px solid #d4a01733;border-top-color:#d4a017;border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+  <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+</div>
+
 <div id="toast" class="toast hidden"></div>
-<script src="js/app.js"></script>
+
+<!-- =====================================================
+     FIREBASE SDK — Paste your config in firebase-config.js
+     ===================================================== -->
+<script type="module" src="js/firebase-config.js"></script>
+<script type="module" src="js/app.js"></script>
 </body>
 </html>
