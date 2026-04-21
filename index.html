@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ml" id="htmlRoot">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title id="pageTabTitle">സഭാ വാർത്ത | Sabha Vartha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<div class="bg-orbs" aria-hidden="true">
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+</div>
+
+<!-- ======= HOME PAGE ======= -->
+<div id="homePage">
+
+  <!-- ROLLING AD BAR -->
+  <div class="ad-rolling-bar" id="rollingAdBar">
+    <div class="ad-rolling-label">AD</div>
+    <div class="ad-rolling-track"><div class="ad-rolling-content" id="rollingAdContent">Loading...</div></div>
+  </div>
+
+  <header class="site-header" id="mainHeader">
+    <div class="header-top">
+      <div class="header-logo-area" id="headerLogoArea">
+        <div class="cross-emblem">✝</div>
+      </div>
+      <div class="header-text">
+        <h1 class="site-title" id="siteTitle">സഭാ വാർത്ത</h1>
+        <p class="site-subtitle" id="siteSubtitle">Sabha Vartha — Church News</p>
+      </div>
+      <button class="login-btn" onclick="openLogin()"><span>🔐</span> Admin</button>
+    </div>
+    <nav class="main-nav">
+      <a href="#" class="nav-link active" onclick="showSection('home');return false;">Home</a>
+      <a href="#" class="nav-link" onclick="showSection('parish');return false;">Parish News</a>
+      <a href="#" class="nav-link" onclick="showSection('events');return false;">Events</a>
+      <a href="#" class="nav-link" onclick="showSection('announcements');return false;">Announcements</a>
+      <a href="#" class="nav-link" onclick="showSection('videos');return false;">Videos</a>
+      <a href="#" class="nav-link" onclick="showSection('gallery');return false;">Gallery</a>
+      <a href="#" class="nav-link" onclick="showSection('contact');return false;">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="heroSection">
+    <div class="hero-overlay"></div>
+    <div class="hero-bg-img" id="heroBgImg"></div>
+    <div class="hero-content">
+      <div class="hero-logo-wrap" id="heroLogoWrap" style="display:none">
+        <img id="heroLogoImg" src="" alt="Church Logo" class="hero-logo-img"/>
+      </div>
+      <div class="hero-cross" id="heroCrossIcon">✝</div>
+      <h2 class="hero-title" id="heroTitle">ദൈവ വചനം — ജീവന്റെ വഴി</h2>
+      <p class="hero-subtitle" id="heroSubtitle">The Word of God — The Way of Life</p>
+      <div class="hero-divider"></div>
+      <p class="hero-verse" id="heroVerse">"കർത്താവ് എന്റെ ആട്ടിടയൻ; എനിക്ക് ഒന്നിനും കുറവില്ല"</p>
+    </div>
+    <div class="hero-scroll-indicator"><div class="scroll-dot"></div></div>
+  </section>
+
+  <!-- TICKERS -->
+  <div class="scripture-ticker">
+    <div class="ticker-label">✝ വചനം</div>
+    <div class="ticker-track"><div class="ticker-content" id="tickerContent">Loading...</div></div>
+  </div>
+  <div class="news-ticker-bar">
+    <div class="news-ticker-label">📢 Latest</div>
+    <div class="news-ticker-track"><div class="news-ticker-inner" id="newsTickerContent">Loading...</div></div>
+  </div>
+
+  <main class="main-content" id="mainContentArea">
+    <!-- HOME SECTION -->
+    <div id="sec-home" class="section-page">
+      <div class="content-area">
+        <section class="section-featured">
+          <div class="section-header">
+            <h2 class="section-title">Featured News <span>പ്രധാന വാർത്ത</span></h2>
+            <div class="section-line"></div>
+          </div>
+          <div class="news-grid" id="newsGrid"></div>
+        </section>
+        <section style="margin-top:52px;">
+          <div class="section-header">
+            <h2 class="section-title">All News <span>എല്ലാ വാർത്തകളും</span></h2>
+            <div class="section-line"></div>
+          </div>
+          <div class="news-strip-wrap"><div class="news-strip" id="newsStrip"></div></div>
+        </section>
+        <section id="section-videos" style="margin-top:56px;">
+          <div class="section-header">
+            <h2 class="section-title">📺 Video Messages <span>ദൈവ സന്ദേശം</span></h2>
+            <div class="section-line"></div>
+          </div>
+          <div class="video-grid" id="videoGridHome"></div>
+        </section>
+      </div>
+      <aside class="sidebar">
+        <div class="ad-fixed-box">
+          <div class="ad-fixed-label-tag">Advertisement</div>
+          <div class="ad-slides-wrap" id="adSlidesWrap"></div>
+          <div class="ad-dot-row" id="adDots"></div>
+        </div>
+        <div class="quote-card" id="bibleQuote1">
+          <div class="quote-cross">✝</div>
+          <p class="quote-text" id="bq1text">"For God so loved the world..."</p>
+          <span class="quote-ref" id="bq1ref">John 3:16</span>
+        </div>
+        <div class="quote-card" style="margin-top:20px;" id="bibleQuote2">
+          <div class="quote-cross">✝</div>
+          <p class="quote-text" id="bq2text">"I can do all things through Christ..."</p>
+          <span class="quote-ref" id="bq2ref">Philippians 4:13</span>
+        </div>
+      </aside>
+    </div>
+
+    <!-- PARISH NEWS SECTION -->
+    <div id="sec-parish" class="section-page hidden">
+      <div class="full-section-content">
+        <div class="section-header"><h2 class="section-title">Parish News <span>ഇടവക വാർത്ത</span></h2><div class="section-line"></div></div>
+        <div class="news-grid" id="parishGrid"></div>
+      </div>
+    </div>
+
+    <!-- EVENTS SECTION -->
+    <div id="sec-events" class="section-page hidden">
+      <div class="full-section-content">
+        <div class="section-header"><h2 class="section-title">Events <span>പരിപാടികൾ</span></h2><div class="section-line"></div></div>
+        <div class="news-grid" id="eventsGrid"></div>
+      </div>
+    </div>
+
+    <!-- ANNOUNCEMENTS SECTION -->
+    <div id="sec-announcements" class="section-page hidden">
+      <div class="full-section-content">
+        <div class="section-header"><h2 class="section-title">Announcements <span>അറിയിപ്പുകൾ</span></h2><div class="section-line"></div></div>
+        <div class="news-grid" id="announcementsGrid"></div>
+      </div>
+    </div>
+
+    <!-- VIDEOS SECTION -->
+    <div id="sec-videos" class="section-page hidden">
+      <div class="full-section-content">
+        <div class="section-header"><h2 class="section-title">📺 Video Messages <span>ദൈവ സന്ദേശം</span></h2><div class="section-line"></div></div>
+        <div class="video-grid" id="videoGridFull"></div>
+      </div>
+    </div>
+
+    <!-- GALLERY SECTION -->
+    <div id="sec-gallery" class="section-page hidden">
+      <div class="full-section-content">
+        <div class="section-header"><h2 class="section-title">Gallery <span>ഗ്യാലറി</span></h2><div class="section-line"></div></div>
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="gallery-empty">No photos yet. Add them via Admin → Gallery.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <div id="sec-contact" class="section-page hidden">
+      <div class="full-section-content">
+        <div class="section-header"><h2 class="section-title">Contact <span>ബന്ധപ്പെടുക</span></h2><div class="section-line"></div></div>
+        <div class="contact-layout">
+          <div class="contact-info-box glass-card" id="contactInfoBox"></div>
+          <div class="contact-map-box glass-card" id="contactMapBox"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="siteFooter">
+    <div class="footer-cross">✝</div>
+    <p class="footer-title" id="footerTitle">സഭാ വാർത്ത</p>
+    <p class="footer-sub" id="footerSub">Sharing the Good News • സുവിശേഷം പങ്കുവയ്ക്കുന്നു</p>
+    <div class="footer-contact-strip" id="footerContactStrip"></div>
+    <p class="footer-copy" id="footerCopy">© 2025 Sabha Vartha. Built with faith &amp; love. 🙏</p>
+  </footer>
+</div>
+
+<!-- ======= NEWS FULL PAGE ======= -->
+<div id="newsFullPage" class="full-page hidden">
+  <div class="full-page-header">
+    <button class="back-btn" onclick="closeNewsFullPage()">← Back</button>
+    <span class="full-page-logo" id="newsPageLogo">✝ Sabha Vartha</span>
+    <button class="share-btn-header" onclick="shareCurrentNews()">🔗 Share</button>
+  </div>
+  <div class="news-detail-layout">
+    <div class="news-detail-main">
+      <div class="news-full-img-wrap">
+        <img src="" alt="" id="fullDetailImg" class="news-full-img"/>
+        <div class="detail-img-overlay"></div>
+        <h1 class="full-detail-title" id="fullDetailTitle"></h1>
+      </div>
+      <div class="news-full-body">
+        <div class="detail-meta">
+          <span class="detail-category" id="fullDetailCategory"></span>
+          <span class="detail-date" id="fullDetailDate"></span>
+        </div>
+        <div class="detail-content" id="fullDetailContent"></div>
+        <div class="news-full-actions">
+          <button class="share-big-btn" onclick="shareCurrentNews()">🔗 Share this News</button>
+        </div>
+      </div>
+    </div>
+    <aside class="news-detail-ad-col" id="newsDetailAds"></aside>
+  </div>
+</div>
+
+<!-- ======= ADMIN FULL PAGE ======= -->
+<div id="adminFullPage" class="full-page hidden">
+  <div class="admin-full-header">
+    <button class="back-btn" onclick="closeAdminPage()">← Exit</button>
+    <div class="admin-full-title">✝ Admin Panel</div>
+    <button class="admin-logout" onclick="doLogout()">Logout</button>
+  </div>
+  <div class="admin-layout">
+    <!-- Sidebar Nav -->
+    <nav class="admin-sidenav">
+      <button class="admin-nav-btn active" onclick="openAdminTab('tab-news',this)">📰 News</button>
+      <button class="admin-nav-btn" onclick="openAdminTab('tab-ads',this)">📢 Ads</button>
+      <button class="admin-nav-btn" onclick="openAdminTab('tab-videos',this)">📺 Videos</button>
+      <button class="admin-nav-btn" onclick="openAdminTab('tab-gallery',this)">🖼 Gallery</button>
+      <button class="admin-nav-btn" onclick="openAdminTab('tab-quotes',this)">📖 Bible Quotes</button>
+      <button class="admin-nav-btn" onclick="openAdminTab('tab-appearance',this)">🎨 Appearance</button>
+      <button class="admin-nav-btn" onclick="openAdminTab('tab-contact',this)">📞 Contact</button>
+      <button class="admin-nav-btn" onclick="openAdminTab('tab-security',this)">🔐 Security</button>
+    </nav>
+
+    <!-- Tab Content -->
+    <div class="admin-tab-content">
+
+      <!-- NEWS TAB -->
+      <div id="tab-news" class="admin-tab active">
+        <h2 class="tab-title">📰 Manage News</h2>
+        <div class="admin-form-card">
+          <h3 class="form-card-title" id="newFormTitle">➕ Add News</h3>
+          <input type="hidden" id="editingId"/>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" id="newTitle" placeholder="News title in Malayalam or English..."/>
+            </div>
+            <div class="form-group">
+              <label>Category</label>
+              <select id="newCategory">
+                <option value="Parish News">Parish News</option>
+                <option value="Events">Events</option>
+                <option value="Announcement">Announcement</option>
+                <option value="Youth">Youth</option>
+                <option value="Mission">Mission</option>
+                <option value="Prayer">Prayer</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Image</label>
+            <div class="image-upload-area">
+              <input type="file" id="newImageFile" accept="image/*" onchange="handleImageUpload(event,'newImageData','imagePreview','uploadPlaceholder','removeImageBtn')" style="display:none"/>
+              <div class="upload-placeholder" id="uploadPlaceholder" onclick="document.getElementById('newImageFile').click()">
+                <span class="upload-icon">📷</span><span>Click to upload image</span><span class="upload-hint">JPG, PNG, GIF</span>
+              </div>
+              <img id="imagePreview" class="image-preview hidden" alt="Preview"/>
+              <button class="remove-image-btn hidden" id="removeImageBtn" onclick="removeImageField('newImageData','newImageFile','imagePreview','uploadPlaceholder','removeImageBtn')">✕ Remove</button>
+            </div>
+            <input type="hidden" id="newImageData"/>
+          </div>
+          <div class="form-group"><label>Short Summary</label><textarea id="newSummary" rows="2" placeholder="Brief summary for card view..."></textarea></div>
+          <div class="form-group"><label>Full Content</label><textarea id="newContent" rows="6" placeholder="Full news content..."></textarea></div>
+          <div class="form-actions">
+            <button class="admin-btn-add" id="publishBtn" onclick="saveNewsForm()">✝ Publish</button>
+            <button class="admin-btn-cancel hidden" id="cancelEditBtn" onclick="cancelEdit()">Cancel</button>
+          </div>
+        </div>
+        <h3 class="tab-sub-title">Existing News</h3>
+        <div class="admin-news-list" id="adminNewsList"></div>
+      </div>
+
+      <!-- ADS TAB -->
+      <div id="tab-ads" class="admin-tab hidden">
+        <h2 class="tab-title">📢 Advertisements</h2>
+        <p class="tab-desc">Rolling bar text and sidebar ad cards. Up to 6 ads supported.</p>
+        <div class="admin-form-card">
+          <h3 class="form-card-title">Rolling Bar Text</h3>
+          <div class="form-group">
+            <label>Rolling Ad Text (each line = one ad separated by |)</label>
+            <textarea id="rollingAdText" rows="4" placeholder="🏪 John's Supermarket — Fresh Groceries | 📚 Tuition Centre — Call 9876543210 | ✈️ Pilgrimage Tours — Book Now"></textarea>
+          </div>
+          <button class="admin-btn-add" onclick="saveRollingAd()">💾 Save Rolling Ad</button>
+        </div>
+        <div class="admin-form-card" style="margin-top:24px;">
+          <h3 class="form-card-title">➕ Add Sidebar Ad</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Ad Title</label><input type="text" id="adTitle" placeholder="Business name..."/></div>
+            <div class="form-group"><label>Subtitle / Description</label><input type="text" id="adSubtitle" placeholder="Tagline or contact..."/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Icon (emoji)</label><input type="text" id="adIcon" placeholder="🏪" maxlength="4"/></div>
+            <div class="form-group"><label>CTA Button Text</label><input type="text" id="adCta" placeholder="Visit Now →"/></div>
+          </div>
+          <div class="form-group"><label>Background Gradient (CSS)</label><input type="text" id="adBg" placeholder="linear-gradient(135deg,#0d1b2a,#1b4332)"/></div>
+          <button class="admin-btn-add" onclick="addSidebarAd()">➕ Add Ad</button>
+        </div>
+        <h3 class="tab-sub-title">Current Sidebar Ads</h3>
+        <div id="adminAdsList"></div>
+      </div>
+
+      <!-- VIDEOS TAB -->
+      <div id="tab-videos" class="admin-tab hidden">
+        <h2 class="tab-title">📺 YouTube Videos</h2>
+        <div class="admin-form-card">
+          <h3 class="form-card-title">➕ Add Video</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Video Title</label><input type="text" id="vidTitle" placeholder="e.g. Sunday Service April 2025"/></div>
+            <div class="form-group"><label>Date</label><input type="text" id="vidDate" placeholder="April 20, 2025"/></div>
+          </div>
+          <div class="form-group"><label>YouTube Video ID or URL</label><input type="text" id="vidUrl" placeholder="Paste full YouTube URL or just the video ID (e.g. dQw4w9WgXcQ)"/></div>
+          <button class="admin-btn-add" onclick="addVideo()">➕ Add Video</button>
+        </div>
+        <h3 class="tab-sub-title">Current Videos</h3>
+        <div id="adminVideoList"></div>
+      </div>
+
+      <!-- GALLERY TAB -->
+      <div id="tab-gallery" class="admin-tab hidden">
+        <h2 class="tab-title">🖼 Photo Gallery</h2>
+        <div class="admin-form-card">
+          <h3 class="form-card-title">➕ Add Photo</h3>
+          <div class="form-group"><label>Caption</label><input type="text" id="galleryCaption" placeholder="Photo caption..."/></div>
+          <div class="form-group">
+            <label>Photo</label>
+            <div class="image-upload-area">
+              <input type="file" id="galleryFile" accept="image/*" onchange="handleImageUpload(event,'galleryImgData','galleryPreview','galleryPlaceholder','galleryRemoveBtn')" style="display:none"/>
+              <div class="upload-placeholder" id="galleryPlaceholder" onclick="document.getElementById('galleryFile').click()">
+                <span class="upload-icon">📷</span><span>Upload photo</span>
+              </div>
+              <img id="galleryPreview" class="image-preview hidden" alt=""/>
+              <button class="remove-image-btn hidden" id="galleryRemoveBtn" onclick="removeImageField('galleryImgData','galleryFile','galleryPreview','galleryPlaceholder','galleryRemoveBtn')">✕ Remove</button>
+            </div>
+            <input type="hidden" id="galleryImgData"/>
+          </div>
+          <button class="admin-btn-add" onclick="addGalleryPhoto()">➕ Add Photo</button>
+        </div>
+        <h3 class="tab-sub-title">Gallery Photos</h3>
+        <div class="gallery-admin-grid" id="galleryAdminGrid"></div>
+      </div>
+
+      <!-- BIBLE QUOTES TAB -->
+      <div id="tab-quotes" class="admin-tab hidden">
+        <h2 class="tab-title">📖 Bible Quotes &amp; Scripture Ticker</h2>
+        <div class="admin-form-card">
+          <h3 class="form-card-title">Sidebar Quotes</h3>
+          <div class="form-group"><label>Quote 1 Text</label><textarea id="q1text" rows="2"></textarea></div>
+          <div class="form-group"><label>Quote 1 Reference</label><input type="text" id="q1ref" placeholder="John 3:16"/></div>
+          <div class="form-group"><label>Quote 2 Text</label><textarea id="q2text" rows="2"></textarea></div>
+          <div class="form-group"><label>Quote 2 Reference</label><input type="text" id="q2ref" placeholder="Philippians 4:13"/></div>
+          <button class="admin-btn-add" onclick="saveQuotes()">💾 Save Quotes</button>
+        </div>
+        <div class="admin-form-card" style="margin-top:24px;">
+          <h3 class="form-card-title">Scripture Ticker Verses</h3>
+          <p class="tab-desc">One verse per line. Will rotate in the golden ticker bar.</p>
+          <div class="form-group"><textarea id="tickerVerses" rows="8" placeholder='"കർത്താവ് എന്റെ ആട്ടിടയൻ" — Psalm 23:1&#10;"For God so loved the world" — John 3:16'></textarea></div>
+          <button class="admin-btn-add" onclick="saveTicker()">💾 Save Ticker Verses</button>
+        </div>
+      </div>
+
+      <!-- APPEARANCE TAB -->
+      <div id="tab-appearance" class="admin-tab hidden">
+        <h2 class="tab-title">🎨 Appearance Settings</h2>
+
+        <div class="admin-form-card">
+          <h3 class="form-card-title">Page Identity</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Site Title (Header)</label><input type="text" id="appSiteTitle" placeholder="സഭാ വാർത്ത"/></div>
+            <div class="form-group"><label>Site Subtitle</label><input type="text" id="appSiteSubtitle" placeholder="Sabha Vartha — Church News"/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Hero Big Title</label><input type="text" id="appHeroTitle" placeholder="ദൈവ വചനം — ജീവന്റെ വഴി"/></div>
+            <div class="form-group"><label>Hero Subtitle</label><input type="text" id="appHeroSubtitle" placeholder="The Word of God — The Way of Life"/></div>
+          </div>
+          <div class="form-group"><label>Hero Verse (small text)</label><input type="text" id="appHeroVerse" placeholder='"കർത്താവ് എന്റെ ആട്ടിടയൻ..."'/></div>
+          <div class="form-group"><label>Footer Text</label><input type="text" id="appFooterSub" placeholder="Sharing the Good News..."/></div>
+          <button class="admin-btn-add" onclick="saveAppearanceText()">💾 Save Text</button>
+        </div>
+
+        <div class="admin-form-card" style="margin-top:24px;">
+          <h3 class="form-card-title">Hero Background Image</h3>
+          <p class="tab-desc">Upload a photo to use as the hero section background (the area in the screenshot you want to add a picture to).</p>
+          <div class="image-upload-area">
+            <input type="file" id="heroBgFile" accept="image/*" onchange="handleImageUpload(event,'heroBgData','heroBgPreview','heroBgPlaceholder','heroBgRemoveBtn')" style="display:none"/>
+            <div class="upload-placeholder" id="heroBgPlaceholder" onclick="document.getElementById('heroBgFile').click()">
+              <span class="upload-icon">🌄</span><span>Upload Hero Background Photo</span><span class="upload-hint">Wide/landscape image works best</span>
+            </div>
+            <img id="heroBgPreview" class="image-preview hidden" alt=""/>
+            <button class="remove-image-btn hidden" id="heroBgRemoveBtn" onclick="removeHeroBg()">✕ Remove Background</button>
+          </div>
+          <input type="hidden" id="heroBgData"/>
+          <button class="admin-btn-add" style="margin-top:12px;" onclick="saveHeroBg()">💾 Apply Background</button>
+        </div>
+
+        <div class="admin-form-card" style="margin-top:24px;">
+          <h3 class="form-card-title">Church Logo</h3>
+          <p class="tab-desc">Upload your church logo. It will appear in the hero section above the title.</p>
+          <div class="image-upload-area">
+            <input type="file" id="logoFile" accept="image/*" onchange="handleImageUpload(event,'logoData','logoPreview','logoPlaceholder','logoRemoveBtn')" style="display:none"/>
+            <div class="upload-placeholder" id="logoPlaceholder" onclick="document.getElementById('logoFile').click()">
+              <span class="upload-icon">🏛</span><span>Upload Church Logo</span><span class="upload-hint">PNG with transparency recommended</span>
+            </div>
+            <img id="logoPreview" class="image-preview hidden" alt=""/>
+            <button class="remove-image-btn hidden" id="logoRemoveBtn" onclick="removeLogo()">✕ Remove Logo</button>
+          </div>
+          <input type="hidden" id="logoData"/>
+          <button class="admin-btn-add" style="margin-top:12px;" onclick="saveLogo()">💾 Apply Logo</button>
+        </div>
+
+        <div class="admin-form-card" style="margin-top:24px;">
+          <h3 class="form-card-title">Color Theme</h3>
+          <p class="tab-desc">Choose from 10 preset color themes or customize your own accent color.</p>
+          <div class="theme-grid" id="themeGrid"></div>
+          <div class="form-row" style="margin-top:20px;">
+            <div class="form-group"><label>Custom Accent Color</label><input type="color" id="customAccent" value="#d4a017"/></div>
+            <div class="form-group"><label>Custom Background Color</label><input type="color" id="customBg" value="#0b0f1a"/></div>
+          </div>
+          <button class="admin-btn-add" onclick="applyCustomTheme()">🎨 Apply Custom</button>
+        </div>
+      </div>
+
+      <!-- CONTACT TAB -->
+      <div id="tab-contact" class="admin-tab hidden">
+        <h2 class="tab-title">📞 Contact Details</h2>
+        <div class="admin-form-card">
+          <h3 class="form-card-title">Church Contact Information</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Church Name</label><input type="text" id="ctChurchName" placeholder="Church name..."/></div>
+            <div class="form-group"><label>Pastor / Vicar Name</label><input type="text" id="ctPastor" placeholder="Rev. ..."/></div>
+          </div>
+          <div class="form-group"><label>Address</label><textarea id="ctAddress" rows="3" placeholder="Full address..."></textarea></div>
+          <div class="form-row">
+            <div class="form-group"><label>Phone 1</label><input type="text" id="ctPhone1" placeholder="+91 ..."/></div>
+            <div class="form-group"><label>Phone 2</label><input type="text" id="ctPhone2" placeholder="+91 ..."/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Email</label><input type="email" id="ctEmail" placeholder="church@example.com"/></div>
+            <div class="form-group"><label>Website</label><input type="text" id="ctWebsite" placeholder="https://..."/></div>
+          </div>
+          <div class="form-group"><label>Sunday Service Time</label><input type="text" id="ctServiceTime" placeholder="Sunday 10:00 AM"/></div>
+          <div class="form-group"><label>Google Maps Embed URL (optional)</label><input type="text" id="ctMapUrl" placeholder="Paste Google Maps embed src URL..."/></div>
+          <button class="admin-btn-add" onclick="saveContact()">💾 Save Contact</button>
+        </div>
+      </div>
+
+      <!-- SECURITY TAB -->
+      <div id="tab-security" class="admin-tab hidden">
+        <h2 class="tab-title">🔐 Security</h2>
+        <div class="admin-form-card">
+          <h3 class="form-card-title">Change Admin Password</h3>
+          <div class="form-group"><label>Current Password</label><input type="password" id="secOldPass" placeholder="Current password"/></div>
+          <div class="form-group"><label>New Password</label><input type="password" id="secNewPass" placeholder="New password (min 6 chars)"/></div>
+          <div class="form-group"><label>Confirm New Password</label><input type="password" id="secConfPass" placeholder="Confirm new password"/></div>
+          <div class="form-group"><label>Change Username</label><input type="text" id="secNewUser" placeholder="New username (leave blank to keep)"/></div>
+          <div id="secMsg" style="min-height:20px;font-size:.85rem;margin-bottom:8px;"></div>
+          <button class="admin-btn-add" onclick="changePassword()">🔐 Update Credentials</button>
+        </div>
+      </div>
+
+    </div><!-- end tab-content -->
+  </div><!-- end admin-layout -->
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal" onclick="closeLoginOutside(event)">
+  <div class="login-card">
+    <div class="login-cross">✝</div>
+    <h2 class="login-title">Admin Login</h2>
+    <p class="login-subtitle" id="loginChurchName">സഭാ വാർത്ത</p>
+    <div class="login-form">
+      <div class="input-group"><label>Username</label><input type="text" id="loginUser" placeholder="Username"/></div>
+      <div class="input-group"><label>Password</label><input type="password" id="loginPass" placeholder="Password"/></div>
+      <div class="login-error" id="loginError"></div>
+      <button class="login-submit-btn" onclick="doLogin()">Login ✝</button>
+      <button class="login-cancel-btn" onclick="closeLogin()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+<script src="js/app.js"></script>
+</body>
+</html>
